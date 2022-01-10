@@ -34,12 +34,13 @@ void loop()
 
 void beep(int tone, int duration)
 {
-  for (long i = 0; i < duration * 900L; i += tone * 1)
+  int toneDelay = (1000000 / tone);
+  for (long i = 0; i < duration * 900L; i += toneDelay * 1)
   {
     digitalWrite(buzzerPin, HIGH);
-    delayMicroseconds(tone*(.50));
+    delayMicroseconds(toneDelay*(0.50));
     digitalWrite(buzzerPin, LOW);
-    delayMicroseconds(tone*(.50));
+    delayMicroseconds(toneDelay*(0.50));
   }
   delay(30);
 }
